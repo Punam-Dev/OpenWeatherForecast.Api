@@ -1,0 +1,13 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr-checks:
+    uses: Punam-Dev/dotnet-helm-tf-deployment/.github/workflows/dotnet-pr-checks.yaml.yml@main
+    with:
+      dotnet-version: 'net8.0'
+      sln-path: 'OpenWeatherForecast.sln'
