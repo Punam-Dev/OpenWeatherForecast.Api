@@ -10,7 +10,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+                 app.UseSwagger();
     app.UseSwaggerUI();
 }
 
@@ -30,7 +30,7 @@ app.MapGet("/weatherforecast", () =>
             Random.Shared.Next(-20, 55),
             summaries[Random.Shared.Next(summaries.Length)]
         ))
-        .ToArray();
+.ToArray();
     return forecast;
 })
 .WithName("GetWeatherForecast")
