@@ -8,7 +8,7 @@ on:
 
 jobs:
   pr-checks:
-    uses: Punam-Dev/dotnet-helm-tf-deployment/.github/workflows/dotnet-pr-checks.yaml.yml@main
+    uses: Punam-Dev/dotnet-helm-tf-deployment/.github/workflows/dotnet-pr-checks.yaml@main
     with:
       dotnet-version: 'net8.0'
       sln-path: 'OpenWeatherForecast.sln'
