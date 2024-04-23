@@ -30,13 +30,20 @@ app.MapGet("/weatherforecast", () =>
             Random.Shared.Next(-20, 55),
             summaries[Random.Shared.Next(summaries.Length)]
         ))
-  .ToArray();
+        .ToArray();
     return forecast;
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
 app.Run();
+
+public partial class Program
+{
+    protected Program()
+    {
+    }
+}
 
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
