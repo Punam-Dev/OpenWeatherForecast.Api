@@ -24,6 +24,7 @@ locals {
             }
 
             New-NetFirewallRule -DisplayName 'ALLOW TCP PORT 80' -Direction inbound -Profile Any -Action Allow -LocalPort 80 -Protocol TCP
+            New-NetFirewallRule -DisplayName 'ALLOW TCP PORT 443' -Direction inbound -Profile Any -Action Allow -LocalPort 443 -Protocol TCP
 
             cd $extractFolder$s3Folder
             dotnet OpenWeatherForecast.Api.dll --urls "http://*:80"
