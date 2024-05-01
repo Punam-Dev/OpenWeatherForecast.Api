@@ -30,3 +30,5 @@ variable "inbound_cidr" {
 variable "ebs_root_volume_size" { default = "30" }
 
 variable "aspnetcore_environment" {}
+
+variable "app_version" {}

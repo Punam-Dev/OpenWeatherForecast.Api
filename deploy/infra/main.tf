@@ -28,6 +28,8 @@ module "ec2" {
   ebs_root_volume_size = var.ebs_root_volume_size
   ec2_sg = module.sg.app_sg
   environment = var.environment
+  app_version = var.app_version
+  app_name = var.app_name
 }
 
 
