@@ -6,3 +6,5 @@ variable "ebs_root_volume_size" {}
 variable "ec2_sg" {}
 variable "aspnetcore_environment" {}
 variable "environment" {}
+variable "app_version" {}
+variable "app_name" {}

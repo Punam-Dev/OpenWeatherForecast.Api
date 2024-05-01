@@ -4,12 +4,13 @@ resource "aws_instance" "ec2a" {
   instance_type = var.instance_type
   security_groups = [var.ec2_sg]
   iam_instance_profile = var.instance_profile
-  key_name = "Key-Pair-Mumbai-Machmain"
-  availability_zone = "ap-south-1b"
+  # key_name = "Key-Pair-Mumbai-Machmain"
+  availability_zone = "us-east-1b"
+  user_data_base64 = "${base64encode(local.instance-userdata)}"
 }
 
 resource "aws_ebs_volume" "example" {
-  availability_zone = "ap-south-1b"
+  availability_zone = "us-east-1b"
   size              = 1
 }
 
