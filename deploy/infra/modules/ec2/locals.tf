@@ -8,7 +8,7 @@ locals {
             [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\dotnet", "Machine")
 
             $s3Bucket = "build-artifacts-github-action"
-            $s3Folder = ${var.app_name}
+            $s3Folder = ${var.app_name}/${var.app_version}
             $extractFolder = "C:/"
             $downloadLocation = "C:/s3Contents"
             $objects = Get-S3Object -BucketName $s3Bucket -KeyPrefix $s3Folder
