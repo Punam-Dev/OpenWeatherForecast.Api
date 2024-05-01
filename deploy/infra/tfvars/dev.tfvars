@@ -1,4 +1,4 @@
-environment = "Dev"
+environment = "dev"
 
 vpc_id = "vpc-04584f5fe72a4c072"
 

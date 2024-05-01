@@ -2,7 +2,7 @@ variable "region" {default = "us-east-1"}
 
 variable "session_name" {default = "openweatherforecast-deployment"}
 
-variable "app_name" {default = "openWeatherforecast-api"}
+variable "app_name" {default = "openweatherforecast-api"}
 
 variable "environment" {}
 
