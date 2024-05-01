@@ -3,6 +3,10 @@ data "aws_elb_service_account" "main" {}
 resource "aws_s3_bucket" "elb_logs" {
   bucket = "${var.app_name}-access-logs-${var.environment}"
   force_destroy = true
+}
+
+resource "aws_s3_bucket_policy" "policy" {
+  bucket = aws_s3_bucket.elb_logs.id
   policy = <<POLICY
 {
   "Id": "Policy",
@@ -42,7 +46,15 @@ resource "aws_s3_bucket" "elb_logs" {
 POLICY
 }
 
+resource "aws_s3_bucket_ownership_controls" "s3_bucket_acl_ownership" {
+  bucket = aws_s3_bucket.elb_logs.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_acl" "acl" {
+  depends_on = [aws_s3_bucket_ownership_controls.s3_bucket_acl_ownership]
   bucket = aws_s3_bucket.elb_logs.id
   acl    = "private"
 }
