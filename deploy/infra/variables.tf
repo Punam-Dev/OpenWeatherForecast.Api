@@ -2,13 +2,13 @@ variable "region" {default = "us-east-1"}
 
 variable "session_name" {default = "openweatherforecast-deployment"}
 
-variable "app_name" {default = "OpenWeatherForecast Api"}
+variable "app_name" {default = "OpenWeatherForecast-Api"}
 
 variable "environment" {}
 
 variable "vpc_id" {}
 
-variable "name_initials" { default = "openweather" }
+variable "name_initials" { default = "weathr" }
 
 variable "instance_type" { default = "t2.micro" }
 
