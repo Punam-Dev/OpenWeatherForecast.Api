@@ -11,7 +11,7 @@ jobs:
     uses: Punam-Dev/dotnet-helm-tf-deployment/.github/workflows/dotnet-deploy.yaml@main
     with:
       dotnet-version: '8.0.x'
-      app-name: OpenWeatherForecast-Api
+      app-name: openweatherforecast-api
       sln-path: 'OpenWeatherForecast.sln'
       tf-path: 'deploy/infra'
       role-name: 'openwatherforecast-terraform'
