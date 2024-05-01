@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "combined" {
 	matcher = "200-299"
     protocol = "HTTP"
     port = "80"
-		path = "/Home"
+		path = "/weatherforecast"
 	}
   lifecycle {
     create_before_destroy = true

@@ -15,6 +15,14 @@ resource "aws_security_group" "app-sg" {
     # cidr_blocks = var.inbound_cidr
     security_groups = [aws_security_group.openweatherforecast-alb-sg.id]
   }
+  ingress {
+    from_port = 443
+    to_port = 443
+    protocol = "tcp"
+    # if cidr block is not commented then api can be accessed by ec2ip also
+    # cidr_blocks = var.inbound_cidr
+    security_groups = [aws_security_group.openweatherforecast-alb-sg.id]
+  }
   egress {
     from_port = 0
     to_port = 0
@@ -33,6 +41,12 @@ resource "aws_security_group" "openweatherforecast-alb-sg" {
   ingress {
     from_port       = 80
     to_port         = 80
+    protocol        = "tcp"
+    cidr_blocks = var.inbound_cidr
+  }
+  ingress {
+    from_port       = 443
+    to_port         = 443
     protocol        = "tcp"
     cidr_blocks = var.inbound_cidr
   }
