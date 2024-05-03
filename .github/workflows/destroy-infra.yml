@@ -7,6 +7,6 @@ jobs:
   pr-checks:
     uses: Punam-Dev/dotnet-helm-tf-deployment/.github/workflows/destroy-infra.yaml@main
     with:
-      account-id: '730335281548'
+      account-id: 730335281548
       tf-path: 'deploy/infra'
       role-name: 'openwatherforecast-terraform'
