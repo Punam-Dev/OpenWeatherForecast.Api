@@ -76,3 +76,13 @@ resource "aws_iam_role_policy" "ec2-s3" {
     ]
   })
 }
+
+resource "aws_iam_role_policy_attachment" "ssmmanagedinstancedefault-attach" {
+  role       = aws_iam_role.app.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedEC2InstanceDefaultPolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "ssminstancecore-attach" {
+  role       = aws_iam_role.app.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}

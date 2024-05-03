@@ -8,7 +8,7 @@ locals {
             [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\dotnet", "Machine")
 
             $s3Bucket = "build-artifacts-github-action"
-            $s3Folder = ${var.app_name}/${var.app_version}
+            $s3Folder = "${var.app_name}/${var.app_version}/"
             $extractFolder = "C:/"
             $downloadLocation = "C:/s3Contents"
             $objects = Get-S3Object -BucketName $s3Bucket -KeyPrefix $s3Folder
@@ -26,7 +26,7 @@ locals {
             New-NetFirewallRule -DisplayName 'ALLOW TCP PORT 80' -Direction inbound -Profile Any -Action Allow -LocalPort 80 -Protocol TCP
             New-NetFirewallRule -DisplayName 'ALLOW TCP PORT 443' -Direction inbound -Profile Any -Action Allow -LocalPort 443 -Protocol TCP
 
-            cd $extractFolder$s3Folder
+            cd $extractFolder
             dotnet OpenWeatherForecast.Api.dll --urls "http://*:80"
         </powershell>
         <persist>true</persist>
