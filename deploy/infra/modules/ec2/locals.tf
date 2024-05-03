@@ -4,7 +4,7 @@ locals {
         <powershell>
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
             Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'C:/Users/Administrator/dotnet-install.ps1'
-            C:/Users/Administrator/dotnet-install.ps1 -Channel 8.0.x -InstallDir 'C:/Program Files/dotnet'
+            C:/Users/Administrator/dotnet-install.ps1 -Channel 8.0.1xx -InstallDir 'C:/Program Files/dotnet'
             [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\dotnet", "Machine")
 
             $s3Bucket = "build-artifacts-github-action"
