@@ -4,12 +4,12 @@ locals {
         <powershell>
             [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
             Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'C:/Users/Administrator/dotnet-install.ps1'
-            C:/Users/Administrator/dotnet-install.ps1 -Channel 3.1 -InstallDir 'C:/Program Files/dotnet'
+            C:/Users/Administrator/dotnet-install.ps1 -Channel 8.0.x -InstallDir 'C:/Program Files/dotnet'
             [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\dotnet", "Machine")
 
             $s3Bucket = "build-artifacts-github-action"
             $s3Folder = "${var.app_name}/${var.app_version}/"
-            $extractFolder = "C:/"
+            $extractFolder = "C:/Api/"
             $downloadLocation = "C:/s3Contents"
             $objects = Get-S3Object -BucketName $s3Bucket -KeyPrefix $s3Folder
             foreach($object in $objects)
