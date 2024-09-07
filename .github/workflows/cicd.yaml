@@ -9,6 +9,7 @@ on:
 jobs:
   pr-checks:
     uses: Punam-Dev/dotnet-helm-tf-deployment/.github/workflows/dotnet-deploy.yaml@main
+    secrets: inherit
     with:
       dotnet-version: '8.0.x'
       app-name: openweatherforecast-api
