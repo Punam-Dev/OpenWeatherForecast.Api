@@ -4,7 +4,7 @@ phases:
         runtime-versions:
             dotnet: 8.0
     build:
-    commands:
-      - dotnet restore OpenWeatherForecast.sln
-      - dotnet build OpenWeatherForecast.sln
-      - dotnet test OpenWeatherForecast.sln
+        commands:
+          - dotnet restore OpenWeatherForecast.sln
+          - dotnet build OpenWeatherForecast.sln
+          - dotnet test OpenWeatherForecast.sln
