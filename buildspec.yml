@@ -8,3 +8,9 @@ phases:
           - dotnet restore OpenWeatherForecast.sln
           - dotnet build OpenWeatherForecast.sln
           - dotnet test OpenWeatherForecast.sln
+    post_build:
+        commands:
+          - dotnet publish -c Release -r linux-x64 -o ./ src/OpenWeatherForecast.Api/OpenWeatherForecast.Api.csproj
+artifacts:
+  files:
+    - ./**/*
