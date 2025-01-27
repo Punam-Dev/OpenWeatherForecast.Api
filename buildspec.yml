@@ -1,0 +1,9 @@
+version: 0.2
+phases:
+    install:
+        runtime-versions:
+    build:
+    commands:
+      - dotnet restore OpenWeatherForecast.sln
+      - dotnet build OpenWeatherForecast.sln
+      - dotnet test OpenWeatherForecast.sln
