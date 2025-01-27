@@ -17,6 +17,6 @@ public class WeatherForecastTests : BaseIntegrationTest
         var response = await HttpClient.GetAsync("weatherforecast");
 
         // Assert
-        response.StatusCode.Should().Be(404);
+        response.StatusCode.Should().Be(HttpStatusCode.Created);
     }
 }
